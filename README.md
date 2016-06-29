@@ -7,5 +7,5 @@ The art project aims at rediscovering so-called 'Internet spirit' in the era of 
 Based on the local art project 'Dinghaiqiao Mutual Aid Society,' the present project aims to set up an wireless Intranet at Dinghaiqiao, so as to call back the spirit of 'Internet spirit.' We wonder, what may happen if there exists an Intranet, who will use it? how? and for what purpose? Furthermore, if we allow (but not encourage) the user to edit and even delete other's posts, what may come? Will there be any hackers, and will they provide free access to the Internet or simply destroy the service? Etc., etc. We purpose a series of questions and provide the possibility, and observe.
 
 ## This Repo
-This repo contains code for a portal page of the project. In near future more codes and (probably) codes will be added for anyone who has a similar interest of setting-up a local network.
+This repo contains code for a portal page of the project. In the near future more codes will be added for anyone who has a similar interest of setting-up a local network.
 
