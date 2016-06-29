@@ -1,0 +1,52 @@
+<!DOCTYPE html>{% load replies %}
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>定海桥互助网</title>
+	<script type="text/javascript" src="/static/fingerprint2.min.js"></script>
+</head>
+<body>
+<h1 id="定海桥互助网">定海桥互助网</h1>
+{% if post %}
+<h2>回复</h2>
+	<span class="author">{{ post.author }}</span> @ <span class="datetime">{{ post.created }}</span><br />
+	<p class="content">{{ post.content }}</p>
+{% endif %}
+<form action="/" method="POST" accept-charset="utf-8" enctype="multipart/form-data">
+	<p><textarea name="content" rows="8" cols="40"></textarea></p>
+	<p><label for="file">图片或文件</label><input type="file" name="file" value="" id="file"></p>
+	<p><label for="author">署名</label><input type="text" name="author" value="" id="author" placeholder="匿名"></p>
+	<input type="hidden" name="fp" value="" id="fp"> <input type="hidden" name="link" value="{{ link }}" id="link">
+	<p><input type="submit" value="发布 &rarr;"></p>
+	{% csrf_token %}
+</form>
+<hr>
+{% for post in posts %}
+<article>
+	<span class="author">{{ post.author }}</span> @ <span class="datetime">{{ post.created }}</span><br />
+	<p class="content">{{ post.content }}</p>
+	{% if post.url %}
+		{% if post.url %}
+		{% if '.jpg' in post.url or '.png' in post.url or '.gif' in post.url %}
+		<img src="{{ post.url }}" />
+		{% endif %}
+		<div class="attachment">附件：<a href="{{ post.url }}">点击下载</a></div>
+		{% endif %}
+	{% endif %}
+	<p class="actions">[<a href="/{{ post.id }}">回复</a>]</p>
+	{% if link == '' %}
+	{% show_levels post %}
+	{% endif %}
+</article>
+{% endfor %}
+<p class="actions">[<a href="/?offset={{ offset_next }}">下一页</a>] {% if offset > 0 %}[<a href="/?offset={{ offset_prev }}">上一页</a>]{% endif%}</p>
+<hr>
+<em>Copyleft 2016 定海桥互助社网络技术自修小组</em>
+<script>
+new Fingerprint2().get(function(result, components){
+	fp.value = result;
+	localStorage.fp = result;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{% load replies %}{% if post.link %}
+<blockquote>
+	<h2>{{ post.link.title }}</h2>
+	<span class="author">{{ post.link.author }}</span> @ <span class="datetime">{{ post.link.created }}</span><br />
+	<p class="content">{{ post.link.content }}</p>
+	{% if post.link.url %}
+		<div class="attachment">附件：<a href="{{ post.link.url }}">点击下载</a></div>
+	{% endif %}
+	<p class="actions">[<a href="/{{ post.link.id }}">回复</a>]</p>
+	{% show_levels post.link %}
+</blockquote>
+{% endif %}
