@@ -6,7 +6,7 @@
 	{% if post.link.url %}
 		<div class="attachment">附件：<a href="{{ post.link.url }}">点击下载</a></div>
 	{% endif %}
-	<p class="actions">[<a href="/{{ post.link.id }}">回复</a>]</p>
+	<p class="actions">[<a href="/{{ post.link.id }}">回复</a>] <span class="hidden">[<a href="/{{ post.link.id }}?action=delete">删除</a>] [<a href="/{{ post.link.id }}?action=edit">编辑</a>]</span></p>
 	{% show_levels post.link %}
 </blockquote>
 {% endif %}

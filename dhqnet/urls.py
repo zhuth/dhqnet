@@ -18,6 +18,7 @@ from django.contrib import admin
 from bbs import views
 
 urlpatterns = [
+    url(r'^fp$', views.fp),
     url(r'^(?P<id>.*)$', views.post),
     #url(r'^admin/', admin.site.urls),
 ]
